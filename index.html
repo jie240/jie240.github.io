@@ -34,6 +34,11 @@
                 transform: translateY(-5px);
                 box-shadow: 0 10px 25px -5px rgba(0, 114, 255, 0.1), 0 10px 10px -5px rgba(0, 114, 255, 0.04);
             }
+            .tab-active {
+                border-bottom: 3px solid #0072FF;
+                color: #0072FF;
+                font-weight: 600;
+            }
         }
     </style>
 </head>
@@ -47,67 +52,156 @@
                     <i class="fa fa-rocket text-4xl"></i>
                 </div>
                 <h1 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-2">小宇宙live</h1>
-                <p class="text-white/90 text-lg">快手创作者 · 游戏开发者</p>
+                <p class="text-white/90 text-lg">快手创作者 · 自定义编程语言开发者</p>
+            </div>
+
+            <!-- 标签切换 -->
+            <div class="border-b border-gray-100">
+                <div class="flex">
+                    <button id="tab-home" class="tab-active px-8 py-4 transition-all duration-300" onclick="switchTab('home')">
+                        主页
+                    </button>
+                    <button id="tab-vex" class="px-8 py-4 text-gray-500 transition-all duration-300" onclick="switchTab('vex')">
+                        VEX语言介绍
+                    </button>
+                </div>
             </div>
 
             <!-- 内容区域 -->
             <div class="p-8">
-                <p class="text-gray-700 mb-6 text-lg leading-relaxed">
-                    欢迎来到我的个人主页！很高兴能在这里与你相遇，你可以通过以下链接找到我和我的作品。
-                </p>
+                <!-- 主页内容 -->
+                <div id="content-home">
+                    <p class="text-gray-700 mb-6 text-lg leading-relaxed">
+                        欢迎来到我的个人主页！很高兴能在这里与你相遇，你可以通过以下链接找到我和我的作品。
+                    </p>
 
-                <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                    <i class="fa fa-link text-primary mr-2"></i>相关链接
-                </h2>
-                
-                <!-- 链接列表 -->
-                <ul class="space-y-4">
-                    <li>
-                        <a href="https://www.kuaishou.com/profile/3xx7hf9bm7ceqjg" 
-                           class="flex items-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-100"
-                           target="_blank" rel="noopener noreferrer">
-                            <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-4">
-                                <i class="fa fa-video-camera"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-medium">快手主页</h3>
-                                <p class="text-gray-500 text-sm">我的快手官方账号</p>
-                            </div>
-                            <i class="fa fa-arrow-right text-gray-400 ml-auto"></i>
-                        </a>
-                    </li>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-4 flex items-center">
+                        <i class="fa fa-link text-primary mr-2"></i>相关链接
+                    </h2>
                     
-                    <li>
-                        <a href="https://wwaa.lanzouo.com/iI9q43983oha" 
-                           class="flex items-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-100"
-                           target="_blank" rel="noopener noreferrer">
-                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4">
-                                <i class="fa fa-gamepad"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-medium">我做的游戏下载(1)正版</h3>
-                                <p class="text-gray-500 text-sm">官方正版游戏安装包</p>
-                            </div>
-                            <i class="fa fa-arrow-right text-gray-400 ml-auto"></i>
-                        </a>
-                    </li>
+                    <!-- 链接列表 -->
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://www.kuaishou.com/profile/3xx7hf9bm7ceqjg" 
+                               class="flex items-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-100"
+                               target="_blank" rel="noopener noreferrer">
+                                <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-primary mr-4">
+                                    <i class="fa fa-video-camera"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">快手主页</h3>
+                                    <p class="text-gray-500 text-sm">我的快手官方账号</p>
+                                </div>
+                                <i class="fa fa-arrow-right text-gray-400 ml-auto"></i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://wwaa.lanzouo.com/iI9q43983oha" 
+                               class="flex items-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-100"
+                               target="_blank" rel="noopener noreferrer">
+                                <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center text-green-600 mr-4">
+                                    <i class="fa fa-gamepad"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">我做的游戏下载(1)正版</h3>
+                                    <p class="text-gray-500 text-sm">官方正版游戏安装包</p>
+                                </div>
+                                <i class="fa fa-arrow-right text-gray-400 ml-auto"></i>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a href="https://wwaa.lanzouo.com/iXWgQ3983ogj" 
+                               class="flex items-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-100"
+                               target="_blank" rel="noopener noreferrer">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-4">
+                                    <i class="fa fa-gamepad"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">我做的游戏下载(2)破解版mod</h3>
+                                    <p class="text-gray-500 text-sm">带MOD的破解版本</p>
+                                </div>
+                                <i class="fa fa-arrow-right text-gray-400 ml-auto"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- VEX语言介绍内容（修正为十六进制恶魔语言） -->
+                <div id="content-vex" class="hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+                        <i class="fa fa-code text-primary mr-2"></i>VEX 编程语言（十六进制恶魔语言）
+                    </h2>
                     
-                    <li>
-                        <a href="https://wwaa.lanzouo.com/iXWgQ3983ogj" 
-                           class="flex items-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-100"
-                           target="_blank" rel="noopener noreferrer">
-                            <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-4">
-                                <i class="fa fa-gamepad"></i>
-                            </div>
-                            <div>
-                                <h3 class="font-medium">我做的游戏下载(2)破解版mod</h3>
-                                <p class="text-gray-500 text-sm">带MOD的破解版本</p>
-                            </div>
-                            <i class="fa fa-arrow-right text-gray-400 ml-auto"></i>
-                        </a>
-                    </li>
-                </ul>
+                    <div class="bg-gray-50 p-6 rounded-xl border border-gray-100 mb-8">
+                        <p class="text-gray-700 mb-4 leading-relaxed">
+                            VEX（十六进制恶魔语言）是我独立开发的一款基于字符-十六进制映射的自定义编程语言，核心特性是将常规字符与特定十六进制编码一一对应，通过编码转换实现独特的字符表达逻辑，因其编码规则的特殊性被称为“恶魔语言”。
+                        </p>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">核心特性</h3>
+                    <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+                        <li>基于ASCII字符集的专属十六进制编码映射规则</li>
+                        <li>支持字符↔十六进制编码双向转换</li>
+                        <li>覆盖空格、标点、数字、大小写字母全场景字符</li>
+                        <li>支持文本文件批量编码/解码，操作便捷</li>
+                        <li>编码规则固定，转换结果唯一且可追溯</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">编码映射规则示例</h3>
+                    <div class="bg-gray-900 text-gray-100 p-4 rounded-lg mb-6 overflow-x-auto">
+                        <pre><code>// VEX语言核心编码映射规则
+
+// 转换示例："Hello World!" 
+// 编码结果：68 65 6C 6C 6F 20 77 6F 72 6C 64  //没有感叹号因为我没做
+// 解码：输入上述十六进制编码，可还原为原字符串</code></pre>
+                    </div>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">使用场景</h3>
+                    <ul class="list-disc pl-6 mb-6 text-gray-700 space-y-2">
+                        <li>字符编码转换与加密传输</li>
+                        <li>自定义文本格式的编解码处理</li>
+                        <li>小众场景下的字符隐私表达</li>
+                        <li>文本文件的十六进制格式转换</li>
+                    </ul>
+
+                    <h3 class="text-xl font-semibold text-gray-800 mb-4">下载资源</h3>
+                    <ul class="space-y-4">
+                        <li>
+                            <a href="https://wwamm.lanzouv.com/iShPf3d12phc" 
+                               class="flex items-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-100"
+                               target="_blank" rel="noopener noreferrer">
+                                <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center text-yellow-600 mr-4">
+                                    <i class="fa fa-download"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">VEX语言编译器完整包</h3>
+                                    <p class="text-gray-500 text-sm">包含编译器源码、使用教程、映射字典</p>
+                                </div>
+                                <i class="fa fa-arrow-right text-gray-400 ml-auto"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
+
+                        <li>
+                            <a href="https://www.runoob.com/wp-content/uploads/2022/03/ascii-1-1.png"
+                               class="flex items-center p-4 bg-gray-50 rounded-lg card-hover border border-gray-100"
+                               target="_blank" rel="noopener noreferrer">
+                                <div class="w-10 h-10 rounded-full bg-purple-100 flex items-center justify-center text-purple-600 mr-4">
+                                    <i class="fa fa-gamepad"></i>
+                                </div>
+                                <div>
+                                    <h3 class="font-medium">ascii码表下载链接</h3>
+                                    <p class="text-gray-500 text-sm"></p>
+                                </div>
+                                <i class="fa fa-arrow-right text-gray-400 ml-auto"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>            
 
             <!-- 页脚 -->
             <div class="bg-gray-50 px-8 py-4 text-center text-gray-500 text-sm border-t border-gray-100">
@@ -116,8 +210,26 @@
         </div>
     </div>
 
-    <!-- 简单的交互效果脚本 -->
+    <!-- 交互效果脚本 -->
     <script>
+        // 标签切换功能
+        function switchTab(tabName) {
+            // 隐藏所有内容
+            document.getElementById('content-home').classList.add('hidden');
+            document.getElementById('content-vex').classList.add('hidden');
+            
+            // 移除所有标签的活跃状态
+            document.getElementById('tab-home').classList.remove('tab-active');
+            document.getElementById('tab-vex').classList.remove('tab-active');
+            document.getElementById('tab-home').classList.add('text-gray-500');
+            document.getElementById('tab-vex').classList.add('text-gray-500');
+            
+            // 显示选中的内容和标签
+            document.getElementById('content-' + tabName).classList.remove('hidden');
+            document.getElementById('tab-' + tabName).classList.add('tab-active');
+            document.getElementById('tab-' + tabName).classList.remove('text-gray-500');
+        }
+
         // 为链接添加点击反馈效果
         document.querySelectorAll('a').forEach(link => {
             link.addEventListener('click', function() {
